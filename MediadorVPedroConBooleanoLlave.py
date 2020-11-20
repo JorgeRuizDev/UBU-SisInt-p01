@@ -101,7 +101,6 @@ class Mediator(object):
 
     def actualiza_juego(self, desc):
 
-        # actualiza_turno = False
         mov = []
         if desc == "^":
             mov = [-1, 0]
@@ -111,11 +110,8 @@ class Mediator(object):
             mov = [0, 1]
         elif desc == "<":
             mov = [0, -1]
-        # elif desc=="Change":
-        #    actualiza_turno = True
 
         if not mov == []:
-
             self.state = self.model.move(self.level, self.state, mov)
 
         else:
@@ -130,11 +126,8 @@ class Mediator(object):
             # Actualiza Juego
             self.actualiza_juego(desc)
         elif desc == "Resolver" and not self.search is None and not self.nodes is None:
-
-            # nodoInicial = self.nodes.nodo_inicial_Kwirk(self.level,self.state,self.nodes.heuristica_Kwirk)
+            print(self.nodes.heuristica_JEscapa(self.state))
             nodoInicial = self.nodes.nodo_inicial_JEscapa(self.level, self.state, self.nodes.heuristica_JEscapa)
-
-            # self.solucion = self.search.AStar(nodoInicial,self.nodes.sucesores_Kwirk, self.nodes.meta_Kwirk, self.nodes.heuristica_Kwirk)
 
             self.solucion = self.search.AStar(nodoInicial, self.nodes.sucesores_JEscapa, self.nodes.meta_JEscapa,
                                               self.nodes.heuristica_JEscapa)

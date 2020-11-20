@@ -45,7 +45,7 @@ class State:
         return hash((self.agua, self.aspa, self.player, self.piedra, self.llave))
 
     def __eq__(self, other) -> bool:
-        return (self.__module__ == other.__modeule__ and
+        return (self.__module__ == other.__module__ and
                 self.agua.__eq__(other.get_agua()) and
                 self.aspa.__eq__(other.get_aspa()) and
                 self.llave.__eq__(other.get_llave()) and
